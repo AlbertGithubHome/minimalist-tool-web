@@ -3,11 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>主页面</title>
+    <title>极简工具集</title>
+    <style>
+        /* 居中标题文本 */
+        h1 {
+            text-align: center;
+        }
+        /* 样式可根据需要自行调整 */
+        .card {
+            display: inline-block;
+            width: 160px; /* 缩小 20% */
+            height: 120px; /* 缩小 20% */
+            margin: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+            text-decoration: none;
+            color: #333;
+        }
+        .card:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
-    <h1>主页面</h1>
-    <p>点击下面链接进入工具页面：</p>
-    <a href="/tool">编码转换工具</a>
+    <h1>极简工具集</h1>
+    <div class="card">
+        <a href="/tool">
+            <h2>编码转换工具</h2>
+            <p>点击进入工具页面</p>
+        </a>
+    </div>
 </body>
 </html>

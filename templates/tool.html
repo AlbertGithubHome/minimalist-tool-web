@@ -4,6 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>编码转换工具</title>
+    <style>
+        /* 样式可根据需要自行调整 */
+        .back-link {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+        .back-link:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <h1>编码转换工具</h1>
@@ -14,5 +28,7 @@
         <label for="encoded_text">Base64 编码结果:</label><br>
         <textarea id="encoded_text" name="encoded_text" rows="4" cols="50" readonly>{{ encoded_text }}</textarea><br>
     </form>
+    <br>
+    <a class="back-link" href="/">&#8592; 返回主页面</a>
 </body>
 </html>
