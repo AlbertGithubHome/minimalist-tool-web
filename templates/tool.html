@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编码转换工具</title>
+</head>
+<body>
+    <h1>编码转换工具</h1>
+    <form method="post" action="/tool">
+        <label for="text">输入文字:</label><br>
+        <textarea id="text" name="text" rows="4" cols="50">{{ text }}</textarea><br>
+        <button type="submit">转换为Base64</button><br><br>
+        <label for="encoded_text">Base64 编码结果:</label><br>
+        <textarea id="encoded_text" name="encoded_text" rows="4" cols="50" readonly>{{ encoded_text }}</textarea><br>
+    </form>
+</body>
+</html>
