@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编码转换工具</title>
+</head>
+<body>
+    <h1>编码转换工具</h1>
+    <h2>文本转 Base64 编码</h2>
+    <form method="post" action="/base64">
+        <label for="text_encode">输入文本:</label><br>
+        <textarea id="text_encode" name="text_encode" rows="4" cols="50">{{ text_encode }}</textarea><br>
+        <button type="submit">转换为Base64</button><br><br>
+        <label for="encoded_text">Base64 编码结果:</label><br>
+        <textarea id="encoded_text" name="encoded_text" rows="4" cols="50" readonly>{{ encoded_text }}</textarea><br>
+    </form>
+    <hr>
+    <h2>Base64 编码转文本</h2>
+    <form method="post" action="/base64">
+        <label for="encoded_text_decode">输入 Base64 编码:</label><br>
+        <textarea id="encoded_text_decode" name="encoded_text_decode" rows="4" cols="50">{{ encoded_text_decode }}</textarea><br>
+        <button type="submit">转换为文本</button><br><br>
+        <label for="text_decode">文本结果:</label><br>
+        <textarea id="text_decode" name="text_decode" rows="4" cols="50" readonly>{{ text_decode }}</textarea><br>
+    </form>
+    <br>
+    <a href="/">返回主页面</a>
+</body>
+</html>
