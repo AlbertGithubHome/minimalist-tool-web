@@ -25,15 +25,19 @@
         .card:hover {
             background-color: #f0f0f0;
         }
+        /* 说明文本样式 */
+        .card p {
+            margin-top: 5px; /* 调整顶部间距 */
+            font-size: 12px; /* 缩小字号 */
+            text-align: left; /* 左对齐 */
+        }
     </style>
 </head>
 <body>
     <h1>极简工具集</h1>
-    <div class="card">
-        <a href="/tool">
-            <h2>编码转换工具</h2>
-            <p>点击进入工具页面</p>
-        </a>
-    </div>
+    <a href="/tool" class="card">
+        <h2>编码转换工具</h2>
+        <p>将文本转换为 Base64 编码</p>
+    </a>
 </body>
 </html>

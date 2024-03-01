@@ -1,11 +1,7 @@
 from flask import Flask, render_template, request
-import base64
+from tools.encoding import encode_to_base64
 
 app = Flask(__name__)
-
-def encode_to_base64(text):
-    encoded_text = base64.b64encode(text.encode()).decode()
-    return encoded_text
 
 @app.route('/')
 def index():
