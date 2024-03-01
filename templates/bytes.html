@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本与字节串转换工具</title>
+</head>
+<body>
+    <h1>文本与字节串转换工具</h1>
+    <h2>文本转字节串</h2>
+    <form method="post" action="/bytes">
+        <label for="text_to_bytes">输入文本:</label><br>
+        <textarea id="text_to_bytes" name="text_to_bytes" rows="4" cols="50">{{ text_to_bytes }}</textarea><br>
+        <button type="submit">转换为字节串</button><br><br>
+        <label for="text_to_bytes_result">字节串结果:</label><br>
+        <textarea id="text_to_bytes_result" name="text_to_bytes_result" rows="4" cols="50" readonly>{{ text_to_bytes_result }}</textarea><br>
+    </form>
+    <hr>
+    <h2>字节串转文本</h2>
+    <form method="post" action="/bytes">
+        <label for="bytes_to_text">输入字节串:(形如 \xe6\xa3\x92 或 \346\240\274)</label><br>
+        <textarea id="bytes_to_text" name="bytes_to_text" rows="4" cols="50">{{ bytes_to_text }}</textarea><br>
+        <button type="submit">转换为文本</button><br><br>
+        <label for="bytes_to_text_result">文本结果:</label><br>
+        <textarea id="bytes_to_text_result" name="bytes_to_text_result" rows="4" cols="50" readonly>{{ bytes_to_text_result }}</textarea><br>
+    </form>
+    <br>
+    <a href="/">返回主页面</a>
+</body>
+</html>
