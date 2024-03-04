@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>按位异或工具</title>
+</head>
+<body>
+    <h1>按位异或工具</h1>
+    <form method="post" action="/xor">
+        <label for="input1">输入文本1:(形如 \xe6\xa3\x92 或 \346\240\274 亦可)</label><br>
+        <textarea id="input1" name="input1" rows="4" cols="50">{{ input1 }}</textarea><br>
+        <label for="input2">输入文本2:</label><br>
+        <textarea id="input2" name="input2" rows="4" cols="50">{{ input2 }}</textarea><br>
+        <button type="submit">执行按位异或</button><br><br>
+        <label for="xor_result">异或结果:</label><br>
+        <textarea id="xor_result" name="xor_result" rows="4" cols="50" readonly>{{ xor_result }}</textarea><br>
+    </form>
+    <br>
+    <a href="/">返回主页面</a>
+</body>
+</html>

@@ -1,37 +1,12 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>极简工具集</title>
-    <style>
-        /* 居中标题文本 */
-        h1 {
-            text-align: center;
-        }
-        /* 样式可根据需要自行调整 */
-        .card {
-            display: inline-block;
-            width: 160px; /* 缩小 20% */
-            height: 120px; /* 缩小 20% */
-            margin: 20px;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            text-align: center;
-            text-decoration: none;
-            color: #333;
-        }
-        .card:hover {
-            background-color: #f0f0f0;
-        }
-        /* 说明文本样式 */
-        .card p {
-            margin-top: 5px; /* 调整顶部间距 */
-            font-size: 12px; /* 缩小字号 */
-            text-align: left; /* 左对齐 */
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
     <h1>极简工具集</h1>
@@ -42,6 +17,10 @@
     <a href="/bytes" class="card">
         <h2>字节串转换</h2>
         <p>普通文本 &lt;==&gt; 字节串表示</p>
+    </a>
+    <a href="/xor" class="card">
+        <h2>按位异或求值</h2>
+        <p>文本1 ^ 文本2</p>
     </a>
 </body>
 </html>

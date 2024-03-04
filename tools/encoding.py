@@ -27,5 +27,21 @@ def text_to_bytes_str(text):
 def bytes_str_to_text(bytes_str):
     return string_escape(bytes_str)
 
+def hex_with_dash(string):
+    hex_string = ''.join(hex(ord(c))[2:].zfill(2) for c in string)
+    return '-'.join(hex_string[i:i+2] for i in range(0, len(hex_string), 2))
+
+def xor_text(text1, text2):
+    bytes1 = text1.encode('latin1').decode('unicode-escape').encode('latin1')
+    bytes2 = text2.encode('latin1').decode('unicode-escape').encode('latin1')
+
+    length = min(len(bytes1), len(bytes2))
+
+    xor_result = ''.join(chr(c1 ^ c2) for c1, c2 in zip(bytes1[:length], bytes2[:length]))
+    bytes_str = str(xor_result.encode('latin1'))
+    hex_str = hex_with_dash(xor_result)
+
+    return xor_result + '\n\n' + bytes_str + '\n\n' + hex_str
+
 
 
