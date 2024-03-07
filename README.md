@@ -17,6 +17,10 @@ Develop a minimalist tool webpage to facilitate daily work and life.
     └── encoding.py
 ```
 
+# examle web
+
+[minimalist too web](http://008ct.space:9205/)
+
 # install requirements
 
 ```bash
