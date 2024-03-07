@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 from tools.encoding import encode_to_base64, decode_from_base64, text_to_bytes_str, bytes_str_to_text
 from tools.encoding import xor_text
-from tools.datetimes import days_until
+from tools.datetimes import get_days_until_holidays
 
 app = Flask(__name__)
 
@@ -53,17 +53,8 @@ def xor():
 
 @app.route('/holidays')
 def holidays():
-    holidays = {
-        '元旦': '2025-01-01',
-        '清明节': '2024-04-04',
-        '劳动节': '2024-05-01',
-        '中秋节': '2024-09-08',
-        '国庆节': '2024-10-01',
-        '春节': '2025-01-25'
-    }
-    days_until_holidays = {holiday: days_until(date_str) for holiday, date_str in holidays.items()}
-
-    return render_template('holidays.html', days_until=days_until_holidays)
+    days_until = get_days_until_holidays()
+    return render_template('holidays.html', days_until=days_until)
 
 
 if __name__ == '__main__':

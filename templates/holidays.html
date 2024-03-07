@@ -4,40 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>假期倒计时</title>
+    <script>
+        // 更新当前日期时间
+        function updateDateTime() {
+            var now = new Date();
+            var datetimeElement = document.getElementById('current_datetime');
+            datetimeElement.innerText = now.toLocaleString();
+        }
+
+        // 更新距离元旦的倒计时秒数
+        function updateNewYearCountdown() {
+            var newYear = new Date(new Date().getFullYear() + 1, 0, 1); // Next year's January 1st
+            var now = new Date();
+            var secondsUntilNewYear = Math.floor((newYear - now) / 1000);
+            var countdownElement = document.getElementById('new_year_countdown');
+            countdownElement.innerText = secondsUntilNewYear + ' 秒';
+        }
+
+        // 每秒更新一次
+        setInterval(function() {
+            updateDateTime();
+            updateNewYearCountdown();
+        }, 1000);
+    </script>
 </head>
 <body>
     <h1>假期倒计时</h1>
-    <p>当前时间：<span id="current-time"></span></p>
+    <p>当前日期时间: <span id="current_datetime"></span></p>
+    <p>元旦倒计时: <span id="new_year_countdown"></span></p>
     <ul>
-        <li>元旦：{{ days_until['元旦'] }} 天</li>
-        <li>春节：{{ days_until['春节'] }} 天</li>
-        <li>清明节：{{ days_until['清明节'] }} 天</li>
-        <li>劳动节：{{ days_until['劳动节'] }} 天</li>
-        <li>中秋节：{{ days_until['中秋节'] }} 天</li>
-        <li>国庆节：{{ days_until['国庆节'] }} 天</li>
+        {% for holiday, days in days_until.items() %}
+        <li>距离{{ holiday }}: {{ days }} 天</li>
+        {% endfor %}
     </ul>
-    <p>距离下个元旦的倒计时：<span id="seconds-until-new-year"></span> 秒</p>
     <br>
     <a href="/">返回主页面</a>
-
-    <script>
-        function updateTime() {
-            var now = new Date();
-            var year = now.getFullYear();
-            var month = (now.getMonth() + 1).toString().padStart(2, '0');
-            var day = now.getDate().toString().padStart(2, '0');
-            var hours = now.getHours().toString().padStart(2, '0');
-            var minutes = now.getMinutes().toString().padStart(2, '0');
-            var seconds = now.getSeconds().toString().padStart(2, '0');
-            document.getElementById('current-time').innerText = year + '-' + month + '-' + day + ' ' + hours + ':' + minutes + ':' + seconds;
-
-            // 计算距离下个元旦的秒数倒计时
-            var nextNewYear = new Date(year + 1, 0, 1); // 下一年的元旦
-            var secondsUntilNewYear = Math.floor((nextNewYear - now) / 1000);
-            document.getElementById('seconds-until-new-year').innerText = secondsUntilNewYear;
-        }
-        updateTime(); // 页面加载时立即更新时间和倒计时
-        setInterval(updateTime, 1000); // 每秒刷新时间和倒计时
-    </script>
 </body>
 </html>
