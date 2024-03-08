@@ -3,7 +3,11 @@ Develop a minimalist tool webpage to facilitate daily work and life.
 
 ```
 .
+├── Dockerfile
+├── LICENSE
 ├── main.py
+├── README.md
+├── requirements.txt
 ├── static
 │   └── style.css
 ├── templates
@@ -13,7 +17,7 @@ Develop a minimalist tool webpage to facilitate daily work and life.
 │   ├── index.html
 │   └── xor.html
 └── tools
-│   ├── datetimes.py
+    ├── datetimes.py
     └── encoding.py
 ```
 
@@ -40,46 +44,46 @@ python3 main.py
 
 # docker
 
-## make
+## make docker image
 
 ```bash
-sudo docker build -t minimalist-web-tool .
+sudo docker build -t minimalist-tool-web .
 ```
 
-## images
+## show docker images
 
 ```bash
 $ sudo docker images
 REPOSITORY            TAG       IMAGE ID       CREATED          SIZE
-minimalist-web-tool   latest    f11497961379   5 minutes ago    65.6MB
+minimalist-tool-web   latest    f11497961379   5 minutes ago    65.6MB
 hello-world           latest    d2c94e258dcb   10 months ago    13.3kB
 ```
 
-## run
+## docker run
 
 ```bash
-sudo docker run -d -p 9206:9205 minimalist-web-tool
+sudo docker run -d -p 9206:9205 minimalist-tool-web
 ```
 
-## ps
+## docker ps
 
 ```bash
 $ sudo docker ps -a
 CONTAINER ID   IMAGE                 COMMAND             CREATED              STATUS                      PORTS                                                 NAMES
-af98cf2f93bf   minimalist-web-tool   "python3 main.py"   About a minute ago   Up About a minute           9206/tcp, 0.0.0.0:9206->9205/tcp, :::9206->9205/tcp   eager_panini
+af98cf2f93bf   minimalist-tool-web   "python3 main.py"   About a minute ago   Up About a minute           9206/tcp, 0.0.0.0:9206->9205/tcp, :::9206->9205/tcp   eager_panini
 df6e26375539   122741b7c691          "python3 main.py"   18 minutes ago       Exited (0) 4 minutes ago    5000/tcp, 0.0.0.0:5000->9205/tcp, :::5000->9205/tcp   suspicious_goldwasser
 933dbeba9722   hello-world           "/hello"            33 minutes ago       Exited (0) 33 minutes ago                                                         magical_antonelli
 8aa681d9bd42   hello-world           "/hello"            33 minutes ago       Exited (0) 33 minutes ago                                                         eager_jemison
 ```
 
-## stop
+## docker stop
 
 ```bash
 $ sudo docker stop af98cf2f93bf
 af98cf2f93bf
 ```
 
-## remove
+## docker rm
 
 ```bash
 $ sudo docker rm df6e26375539
@@ -89,16 +93,27 @@ $ sudo docker rmi f11497961379
 df6e26375539
 ```
 
-## tag login and push
+## doctor tag login and push
 
 ```bash
 $ sudo docker tag f11497961379 ghcr.io/albertgithubhome/minimalist-tool-web:1.0.0
+```
 
-$ cat ~/TOKEN.txt | docker login ghcr.io -u USERNAME --password-stdin xxxx
-(用这种方式登录在push时报错，可能没加sudo的原因)
-(unauthorized: unauthenticated: User cannot be authenticated with the token provided.)
+## doctor login
 
+```bash
+$ cat ~/TOKEN.txt | docker login ghcr.io -u USERNAME --password-stdin
 $ sudo docker login ghcr.io -u USERNAME -p ghp_xxxx
+```
 
+## docker push
+
+```
 $ sudo docker push ghcr.io/albertgithubhome/minimalist-tool-web:1.0.0
+```
+
+## login and pull
+
+```bash
+$ sudo docker pull ghcr.io/albertgithubhome/minimalist-tool-web:1.0.0
 ```
