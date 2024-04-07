@@ -14,7 +14,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN rm -rf /var/cache/apk/*
 
 # 暴露应用端口
-EXPOSE 9206
+EXPOSE 9205
 
 # 运行应用
 CMD ["python3", "main.py"]

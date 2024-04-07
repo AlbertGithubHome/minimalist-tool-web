@@ -63,6 +63,8 @@ hello-world           latest    d2c94e258dcb   10 months ago    13.3kB
 
 ```bash
 sudo docker run -d -p 9206:9205 minimalist-tool-web
+# Bind container ports(9205) to physical server port(9206)
+# http://10.10.49.172:9206
 ```
 
 ## docker ps
@@ -93,7 +95,7 @@ $ sudo docker rmi f11497961379
 df6e26375539
 ```
 
-## doctor tag login and push
+## doctor tag
 
 ```bash
 $ sudo docker tag f11497961379 ghcr.io/albertgithubhome/minimalist-tool-web:1.0.0
