@@ -50,5 +50,31 @@ def xor_text(text1, text2):
 
     return xor_result + '\n\n' + bytes_str + '\n\n' + hex_str
 
+def decimal_to_base36(num: int) -> str:
+    """将 10 进制整数转换为 36 进制字符串"""
+    if num < 0:
+        raise ValueError("只支持非负整数的转换")
 
+    # 定义 36 进制的字符集
+    digits = "0123456789abcdefghijklmnopqrstuvwxyz"
+    if num == 0:
+        return "0"
+
+    base36 = ""
+    while num > 0:
+        remainder = num % 36
+        base36 = digits[remainder] + base36
+        num //= 36
+    return base36
+
+def base36_to_decimal(base36: str) -> int:
+    """将 35 进制字符串转换为 10 进制整数"""
+    digits = "0123456789abcdefghijklmnopqrstuvwxyz"
+    base36 = base36.lower()  # 确保大小写一致
+    decimal = 0
+    for char in base36:
+        if char not in digits:
+            raise ValueError(f"非法字符: {char}")
+        decimal = decimal * 36 + digits.index(char)
+    return decimal
 
