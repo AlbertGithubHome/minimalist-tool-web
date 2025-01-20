@@ -24,7 +24,7 @@ def get_days_until_holidays():
             # 公历日期的节日
             holiday_date = Solar(today.year, month, day).to_date()
             if holiday_date < today.date():
-                holiday_date = Solar(today_lunar.year + 1, month, day).to_date()
+                holiday_date = Solar(today.year + 1, month, day).to_date()
         else:
             # 农历日期的节日
             holiday_date = Lunar(today_lunar.year, month, day).to_date()
