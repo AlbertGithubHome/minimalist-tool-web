@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 from tools.encoding import encode_to_base64, decode_from_base64, text_to_bytes_str, bytes_str_to_text
 from tools.encoding import xor_text
+from tools.encoding import decimal_to_base35, base35_to_decimal
 from tools.datetimes import get_days_until_holidays
 
 app = Flask(__name__)
@@ -24,6 +25,22 @@ def base64():
                                 encoded_text_decode=encoded_text_decode,
                                 text_decode=text_decode)
     return render_template('base64.html')
+
+@app.route('/baseXX', methods=['GET', 'POST'])
+def baseXX():
+    if request.method == 'POST':
+        text_encode = request.form.get('text_encode', '')
+        encoded_text = decimal_to_base35(text_encode)
+
+        encoded_text_decode = request.form.get('encoded_text_decode', '')
+        text_decode = base35_to_decimal(encoded_text_decode)
+
+        return render_template('baseXX.html',
+                                text_encode=text_encode,
+                                encoded_text=encoded_text,
+                                encoded_text_decode=encoded_text_decode,
+                                text_decode=text_decode)
+    return render_template('baseXX.html')
 
 @app.route('/bytes', methods=['GET', 'POST'])
 def bytes():
